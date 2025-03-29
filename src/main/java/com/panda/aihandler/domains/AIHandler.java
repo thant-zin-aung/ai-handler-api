@@ -3,6 +3,7 @@ package com.panda.aihandler.domains;
 import com.panda.aihandler.repositories.SupabaseRepository;
 import org.json.JSONObject;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class AIHandler {
     private final SupabaseRepository supabaseRepository = new SupabaseRepository();
     public String getAIResponse(boolean asTranslator, String prompt) throws IOException {
@@ -97,6 +99,5 @@ public class AIHandler {
     private String extractGeminiAIResponse(String responseBody) {
         JSONObject jsonObject = new JSONObject(responseBody);
         return jsonObject.getJSONArray("candidates").getJSONObject(0).getJSONObject("content").getJSONArray("parts").getJSONObject(0).getString("text");
-//        return jsonObject.getJSONArray("choices").getJSONObject(0).getJSONObject("message").getString("content");
     }
 }

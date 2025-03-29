@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         AIHandler aiHandler = new AIHandler();
 //        System.out.println("Response: "+aiHandler.getAIResponse(true, "Hey! What's up?"));
-        System.out.println("Response: "+aiHandler.getGeminiAIResponse(false, "I want to learn English language."));
+        System.out.println("Response: "+aiHandler.getAIResponse(true, "What if I want to learn new programming languges?"));
 
         SupabaseRepository repo = new SupabaseRepository();
 //        repo.fetchAllData("select=*");
