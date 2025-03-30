@@ -24,4 +24,12 @@ public class AIController {
             return ResponseEntity.ok(e.getMessage());
         }
     }
+    @GetMapping("/ask")
+    public ResponseEntity<Object> getAskResponse(@RequestParam("prompt") String prompt) {
+        try {
+            return ResponseEntity.ok(aiHandler.getAIResponse(false, prompt));
+        } catch (IOException e) {
+            return ResponseEntity.ok(e.getMessage());
+        }
+    }
 }
